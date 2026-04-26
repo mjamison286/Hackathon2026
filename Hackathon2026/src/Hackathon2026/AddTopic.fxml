@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,36 +10,66 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<AnchorPane prefHeight="480.0" prefWidth="640.0"
+  style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);"
+  xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="Hackathon2026.Controller">
+  <children>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <MenuBar prefHeight="0.0" prefWidth="600.0">
-         <menus>
-            <Menu mnemonicParsing="false" text="Profile">
-               <items>
-                  <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
-                  <MenuItem fx:id="settingsMenu" mnemonicParsing="false" onAction="#swapToSettings" text="Settings" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Topics">
-               <items>
-                  <MenuItem fx:id="addNewTopicMenu" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add New" />
-               </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Help">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
-      <TextField fx:id="promptField" layoutX="225.0" layoutY="187.0" AnchorPane.bottomAnchor="187.33333333333331" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.3333333333333" AnchorPane.topAnchor="187.0" />
-      <Text layoutX="45.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What would you like to learn today?" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="237.43098958333331" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.77311197916663" AnchorPane.topAnchor="122.626953125">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Text>
-      <Text fx:id="responseTextOutput" layoutX="6.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AI response goes here" textAlignment="CENTER" visible="false" wrappingWidth="589.4700927734375" AnchorPane.bottomAnchor="80.0" />
-      <Button fx:id="inputButton" layoutX="382.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#AskAI" text="Button" AnchorPane.bottomAnchor="186.66666666666666" AnchorPane.leftAnchor="382.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="188.0" />
-   </children>
+    <!-- Menu bar -->
+    <MenuBar prefWidth="640.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="Profile">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Sign Up" />
+            <MenuItem mnemonicParsing="false" text="Sign In" />
+            <MenuItem mnemonicParsing="false" text="View Profile" />
+            <MenuItem mnemonicParsing="false" text="Settings" />
+            <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Topics">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Add New" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+
+    <!-- Card background -->
+    <AnchorPane layoutX="60.0" layoutY="55.0" prefWidth="520.0" prefHeight="390.0"
+      style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);" />
+
+    <!-- Title -->
+    <Label text="What would you like to explore?" layoutX="100.0" layoutY="85.0"
+      style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" />
+
+    <!-- Subtitle -->
+    <Label text="Ask anything — we'll help you discover it." layoutX="100.0" layoutY="118.0"
+      style="-fx-font-size: 13px; -fx-text-fill: #a07050; -fx-font-family: 'Trebuchet MS';" />
+
+    <!-- AI response area -->
+    <Text fx:id="responseTextOutput" layoutX="90.0" layoutY="175.0"
+      strokeType="OUTSIDE" strokeWidth="0.0"
+      text="Your exploration starts here..."
+      textAlignment="LEFT" wrappingWidth="460.0"
+      style="-fx-fill: #7a5c3c; -fx-font-family: 'Trebuchet MS'; -fx-font-size: 13px;" />
+
+    <!-- Input field -->
+    <TextField fx:id="promptField" layoutX="90.0" layoutY="340.0" prefWidth="380.0"
+      promptText="Type a topic or question..."
+      style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
+
+    <!-- Ask button -->
+    <Button fx:id="inputButton" layoutX="482.0" layoutY="340.0" prefWidth="88.0"
+      mnemonicParsing="false" onMouseClicked="#AskAI" text="Ask →"
+      style="-fx-background-color: linear-gradient(to right, #e8703a, #c05c1a); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" />
+
+  </children>
 </AnchorPane>
