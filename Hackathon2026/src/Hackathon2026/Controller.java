@@ -2,6 +2,8 @@ package Hackathon2026;
 
 import java.io.*;
 import java.net.*;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import java.nio.charset.StandardCharsets;
@@ -21,6 +23,9 @@ import org.json.*;
 
 public class Controller {
 
+    public static String currentTopic = "";
+    public static int weeklyStreakCount = 0;
+
     private PrintWriter out;
     private  BufferedReader in;
     @FXML
@@ -28,6 +33,20 @@ public class Controller {
 
     @FXML
     private TextField messageField;
+
+    @FXML private CheckBox day1;
+    @FXML private CheckBox day2;
+    @FXML private CheckBox day3;
+    @FXML private CheckBox day4;
+    @FXML private CheckBox day5;
+    @FXML private CheckBox day6;
+    @FXML private CheckBox day7;
+    @FXML private ProgressBar progressBar;
+    @FXML private ProgressBar weeklyProgressBar;
+    @FXML private ProgressBar loadingBar;
+    @FXML private Label progressLabel;
+    @FXML private Label weeklyLabel;
+    @FXML private Label trackerTitle;
 
     @FXML
     private void handleSend() {
@@ -100,8 +119,6 @@ public class Controller {
             conn.setDoOutput(true);
 
             CompletableFuture.runAsync(() -> AIThreadRunner(modelName, promptInput, conn));
-
-
         }
         catch (Exception e)
         {
@@ -270,6 +287,59 @@ public class Controller {
         }
     }
 
+    @FXML
+    void handleStartTracking() {
+        if (promptField != null && !promptField.getText().isEmpty()) {
+            currentTopic = promptField.getText();
+        }
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tracker.fxml"));
+        switchScenes(loader);
+    }
+
+    @FXML
+    void updateProgress(ActionEvent event) {
+        int count = 0;
+        if (day1 != null && day1.isSelected()) count++;
+        if (day2 != null && day2.isSelected()) count++;
+        if (day3 != null && day3.isSelected()) count++;
+        if (day4 != null && day4.isSelected()) count++;
+        if (day5 != null && day5.isSelected()) count++;
+        if (day6 != null && day6.isSelected()) count++;
+        if (day7 != null && day7.isSelected()) count++;
+
+        if (progressLabel != null)
+            progressLabel.setText("Daily Progress - " + count + "/7");
+        if (progressBar != null)
+            progressBar.setProgress((double) count / 7);
+
+        if (count == 7) {
+            weeklyStreakCount++;
+            if (weeklyLabel != null)
+                weeklyLabel.setText("Weeks learned " + weeklyStreakCount + "/5");
+            if (weeklyProgressBar != null)
+                weeklyProgressBar.setProgress((double) weeklyStreakCount / 5);
+
+            day1.setSelected(false);
+            day2.setSelected(false);
+            day3.setSelected(false);
+            day4.setSelected(false);
+            day5.setSelected(false);
+            day6.setSelected(false);
+            day7.setSelected(false);
+
+            if (progressLabel != null)
+                progressLabel.setText("Daily Progress - 0/7");
+            if (progressBar != null)
+                progressBar.setProgress(0);
+        }
+    }
+
+    @FXML
+    void handleBack() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+        switchScenes(loader);
+    }
+
     void switchScenes(FXMLLoader ld)
     {
         try
@@ -327,6 +397,14 @@ public class Controller {
             }
 
             e.printStackTrace();
+        }
+
+        if (trackerTitle != null) {
+            String topic = currentTopic.isEmpty() ? "New Interest" : currentTopic;
+            trackerTitle.setText("Daily Tracker - " + topic);
+        }
+        if (weeklyLabel != null) {
+            weeklyLabel.setText("Weeks learned " + weeklyStreakCount + "/5");
         }
     }
 }

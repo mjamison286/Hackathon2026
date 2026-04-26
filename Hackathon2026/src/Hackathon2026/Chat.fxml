@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffcba4; -fx-border-color: #ffe0c0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffcba4; -fx-border-color: #ffe0c0;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="messageField" layoutX="226.0" layoutY="325.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="226.0" />
       <Button fx:id="sendButton" layoutX="375.0" layoutY="325.0" mnemonicParsing="false" onMouseClicked="#handleSend" text="Send" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="375.0" />
@@ -21,18 +21,13 @@
         <menus>
           <Menu mnemonicParsing="false" text="Profile">
             <items>
-              <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
+              <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" text="View Profile" />
                   <MenuItem fx:id="viewChatMenu" mnemonicParsing="false" onAction="#swapToChat" text="Chat" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Topics">
             <items>
               <MenuItem fx:id="addTopicsMenu" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add Topics" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
         </menus>
