@@ -5,46 +5,41 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
   <children>
 
-    <!-- Card -->
-    <VBox alignment="CENTER" layoutX="145.0" layoutY="60.0" prefWidth="350.0" spacing="14.0" style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 20; -fx-padding: 36 32 36 32; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);">
-      <children>
+    <!-- Card background -->
+    <AnchorPane layoutX="145.0" layoutY="60.0" prefHeight="360.0" prefWidth="350.0" style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);">
+         <children>
+      
+          <!-- Title -->
+          <Label layoutX="121.0" layoutY="30.0" style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" text="bulb.it?" />
+      
+          <!-- Subtitle -->
+          <Label layoutX="84.0" layoutY="80.0" style="-fx-font-size: 13px; -fx-text-fill: #a07050; -fx-font-family: 'Trebuchet MS';" text="we can come up with this later" />
+      
+          <!-- Sign up link -->
+          <Button layoutX="117.0" layoutY="321.0" onAction="#handleSignUp" style="-fx-background-color: transparent; -fx-text-fill: #c05c1a; -fx-font-size: 12px; -fx-underline: true; -fx-border-color: transparent; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" text="New here? Sign Up" />
+         </children></AnchorPane>
 
-        <!-- Title -->
-        <Label style="-fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" text=" name lol" />
-        <Label style="-fx-font-size: 13px; -fx-text-fill: #a07050; -fx-font-family: 'Trebuchet MS';" text="idfk" />
+    <!-- Username label -->
+    <Label layoutX="165.0" layoutY="175.0" style="-fx-font-size: 12px; -fx-text-fill: #8b5e3c; -fx-font-family: 'Trebuchet MS';" text="Username" />
 
-        <!-- Username -->
-        <VBox spacing="5.0" style="-fx-padding: 10 0 0 0;">
-          <children>
-            <Label style="-fx-font-size: 12px; -fx-text-fill: #8b5e3c; -fx-font-family: 'Trebuchet MS';" text="Username" />
-            <TextField fx:id="usernameField" promptText="Enter your username" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
-          </children>
-        </VBox>
+    <!-- Username field -->
+    <TextField fx:id="usernameField" layoutX="165.0" layoutY="195.0" prefWidth="310.0" promptText="Enter your username" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
 
-        <!-- Password -->
-        <VBox spacing="5.0">
-          <children>
-            <Label style="-fx-font-size: 12px; -fx-text-fill: #8b5e3c; -fx-font-family: 'Trebuchet MS';" text="Password" />
-            <PasswordField fx:id="passwordField" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
-          </children>
-        </VBox>
+    <!-- Password label -->
+    <Label layoutX="165.0" layoutY="240.0" style="-fx-font-size: 12px; -fx-text-fill: #8b5e3c; -fx-font-family: 'Trebuchet MS';" text="Password" />
 
-        <!-- Error label -->
-        <Label fx:id="errorLabel" style="-fx-text-fill: #cc4400; -fx-font-size: 12px; -fx-font-family: 'Trebuchet MS';" text="" />
+    <!-- Password field -->
+    <PasswordField fx:id="passwordField" layoutX="165.0" layoutY="260.0" prefWidth="310.0" promptText="Enter your password" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
 
-        <!-- Login button -->
-        <Button onAction="#handleLogin" prefWidth="350.0" style="-fx-background-color: linear-gradient(to right, #e8703a, #c05c1a); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 11; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" text="Log In" />
+    <!-- Error label -->
+    <Label fx:id="errorLabel" layoutX="165.0" layoutY="305.0" style="-fx-text-fill: #cc4400; -fx-font-size: 12px; -fx-font-family: 'Trebuchet MS';" text="" />
 
-        <!-- Sign up link -->
-        <Button onAction="#handleSignUp" style="-fx-background-color: transparent; -fx-text-fill: #c05c1a; -fx-font-size: 12px; -fx-underline: true; -fx-border-color: transparent; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" text="New here? Sign Up" />
-
-      </children>
-    </VBox>
+    <!-- Login button -->
+    <Button layoutX="165.0" layoutY="325.0" onAction="#handleLogin" prefWidth="310.0" style="-fx-background-color: linear-gradient(to right, #e8703a, #c05c1a); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 11; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" text="Log In" />
 
   </children>
 </AnchorPane>
