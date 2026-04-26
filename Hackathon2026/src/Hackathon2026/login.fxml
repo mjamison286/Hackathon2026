@@ -38,71 +38,45 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.LoginController">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="497.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Profile">
+            <items>
+              <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
+                  <MenuItem fx:id="settingsMenu" mnemonicParsing="false" onAction="#swapToSettings" text="Settings" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Topics">
+            <items>
+              <MenuItem fx:id="addNewTopicMenu" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add Topic" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+         <font>
             <Font size="18.0" />
-          </font>
-        </Label>
-            <Text layoutX="98.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-            <TextField fx:id="usernameField" layoutX="98.0" layoutY="109.0" promptText="Username" />
-            <Button layoutX="149.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
-            <Button layoutX="97.0" layoutY="177.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Forgot Password?" />
-            <Button layoutX="392.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleSignUp" text="Sign Up" />
-            <TextField layoutX="347.0" layoutY="151.0" text="New User? Sign up here." />
-            <PasswordField fx:id="passwordField" layoutX="98.0" layoutY="223.0" promptText="Password" />
-            <Label fx:id="errorLabel" layoutX="114.0" layoutY="254.0" prefHeight="18.0" prefWidth="114.0" text="Incorrect password!" />
-      </children>
-    </AnchorPane>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" />
-  </children>
-</VBox>
+         </font>
+      </Label>
+      <Text layoutX="98.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <TextField fx:id="usernameField" layoutX="39.0" layoutY="88.0" promptText="Username" />
+      <Button layoutX="91.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleLogin" onMouseClicked="#handleLogin" text="Login" />
+      <Button layoutX="39.0" layoutY="127.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Forgot Password?" />
+      <Button layoutX="392.0" layoutY="191.0" mnemonicParsing="false" onMouseEntered="#handleSignUp" text="Sign Up" />
+      <TextField layoutX="347.0" layoutY="151.0" text="New User? Sign up here." />
+      <PasswordField fx:id="passwordField" layoutX="39.0" layoutY="163.0" promptText="Password" />
+      <Label fx:id="errorLabel" layoutX="57.0" layoutY="195.0" prefHeight="18.0" prefWidth="114.0" text="Incorrect password!" />
+   </children>
+</AnchorPane>

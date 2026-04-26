@@ -1,20 +1,19 @@
 package Hackathon2026;
 
-import java.awt.event.ActionEvent;
 import java.net.*;
 import java.io.*;
 import java.util.*;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 public class ChatServer {
     private static List<PrintWriter> clients = new ArrayList<>();
+
+    public static boolean initialized = false;
 
     public static void initialize(){
         try (ServerSocket server = new ServerSocket(5000))
         {
             System.out.println("Server is starting");
+            initialized = true;
             while (true) {
                 Socket socket = server.accept();
                 System.out.println("Client connected");

@@ -9,7 +9,8 @@ public class Main extends Application{
 
     public void start(Stage primaryStage) throws Exception
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+        System.out.println("start is being called");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
 
         loader.setController(new Controller());
 
@@ -24,13 +25,5 @@ public class Main extends Application{
     public static void main(String[] args)
     {
         launch(args);
-        try
-        {
-            ChatServer.initialize();
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
     }
 }

@@ -6,11 +6,15 @@ public class Database {
 
     private static final String URL = "jdbc:sqlite:hackathon.db";
 
+    public static boolean signedIn;
+    public static boolean initialized;
+
     public static Connection connect() throws SQLException {
         return DriverManager.getConnection(URL);
     }
 
     public static void initialize() {
+        System.out.println("sql database runs");
         String sql = "CREATE TABLE IF NOT EXISTS users (" +
                      "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                      "username TEXT NOT NULL UNIQUE," +

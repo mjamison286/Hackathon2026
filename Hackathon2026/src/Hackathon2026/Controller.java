@@ -3,17 +3,10 @@ package Hackathon2026;
 import java.io.*;
 import java.net.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.CompletableFuture;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,10 +20,7 @@ import javafx.stage.*;
 import org.json.*;
 
 public class Controller {
-/*
-    @FXML
-    private Label label;
-*/
+
     private PrintWriter out;
     private  BufferedReader in;
     @FXML
@@ -60,7 +50,13 @@ public class Controller {
                 });
             }
             
-        } catch (IOException e) {
+        } catch (IOException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private Pane rootPane;
 
     @FXML
@@ -139,7 +135,10 @@ public class Controller {
 
                 responseTextOutput.setText(responseText);
 
-                System.out.println(responseText);
+                if (!responseTextOutput.isVisible())
+                {
+                    responseTextOutput.isVisible();
+                }
             }
         } 
         catch (Exception e)
@@ -149,7 +148,49 @@ public class Controller {
     }
 
     @FXML
-    void handleLogin(ActionEvent event) {
+    void swapToAddTopic()
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+        switchScenes(loader);
+    }
+
+    @FXML
+    void swapToProfile()
+    {
+        FXMLLoader loader;
+
+        if(!Database.signedIn)
+        {
+            loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        }
+        else
+        {
+            loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+        }
+
+        switchScenes(loader);
+    }
+
+    @FXML
+    void swapToSettings()
+    {
+        FXMLLoader loader;
+
+        if(!Database.signedIn)
+        {
+            loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        }
+        else
+        {
+            loader = new FXMLLoader(getClass().getResource("settings.fxml"));
+        }
+
+        switchScenes(loader);
+    }
+
+    @FXML
+    void handleLogin() 
+    {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -158,9 +199,35 @@ public class Controller {
             return;
         }
 
+        Database.loginUser(username, password);
+
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hackathon2026.fxml"));
+            switchScenes(loader);
+        } 
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void handleSignUp()
+    {
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (username.isEmpty() || password.isEmpty()) {
+            errorLabel.setText("Please fill in all fields.");
+            return;
+        }
+
+        Database.registerUser(username, password);
+
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hackathon2026.fxml"));
             switchScenes(loader);
         } 
         catch (Exception e)
@@ -178,11 +245,11 @@ public class Controller {
             Parent root = ld.load();
 
             Stage stage = (Stage) rootPane.getScene().getWindow();
-            
-            stage.setTitle("hello hackathon2026");
-            stage.setScene(new Scene(root, 400, 300));
 
-            stage.show();
+            double width = rootPane.getScene().getWidth();
+            double height = rootPane.getScene().getHeight();
+            
+            stage.setScene(new Scene(root, width, height));
         }
         catch (Exception e)
         {
@@ -193,6 +260,17 @@ public class Controller {
     public void initialize()
     {
         try {
+
+            if (!Database.initialized)
+            {
+                Database.initialize();
+            }
+
+            if (!ChatServer.initialized)
+            {
+                CompletableFuture.runAsync(() -> ChatServer.initialize());
+            }
+
             Socket socket = new Socket("localhost", 5000);
 
             in =new BufferedReader( new InputStreamReader(socket.getInputStream()));
@@ -200,12 +278,20 @@ public class Controller {
             out = new PrintWriter(socket.getOutputStream(), true);
 
             new Thread(() -> listenForMessage()).start();
+            if (chatArea != null)
+            {
+                chatArea.appendText("Connected to the server \n");
+                System.out.println("Connected to the server");
+            }
+        } 
+        catch (IOException e) 
+        {
+            if (chatArea != null)
+            {
+                chatArea.appendText("Could not connect to the server");
+                System.out.println("Could not connect to the server");
+            }
 
-            chatArea.appendText("Connected to the server \n");
-
-            
-        } catch (IOException e) {
-            chatArea.appendText("Could not connect to the sever");
             e.printStackTrace();
         }
     }
