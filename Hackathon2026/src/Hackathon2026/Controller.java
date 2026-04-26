@@ -203,7 +203,7 @@ public class Controller {
 
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hackathon2026.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
             switchScenes(loader);
         } 
         catch (Exception e)
@@ -227,7 +227,7 @@ public class Controller {
 
         try
         {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("hackathon2026.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
             switchScenes(loader);
         } 
         catch (Exception e)
