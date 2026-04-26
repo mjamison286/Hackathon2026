@@ -13,7 +13,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
     <children>
-        <Label fx:id="label" onDragDetected="#test" text="Label" />
+        <Label fx:id="label" text="Label" />
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <SplitPane dividerPositions="0.5" layoutX="121.0" layoutY="165.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
