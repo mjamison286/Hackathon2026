@@ -24,5 +24,13 @@ public class Main extends Application{
     public static void main(String[] args)
     {
         launch(args);
+        try
+        {
+            ChatServer.initialize();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
