@@ -9,7 +9,11 @@ public class Main extends Application{
 
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("hackathon2026.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+
+        loader.setController(new Controller());
+
+        Parent root = loader.load();
 
         primaryStage.setTitle("hello hackathon2026");
         primaryStage.setScene(new Scene(root, 400, 300));
