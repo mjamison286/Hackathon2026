@@ -87,6 +87,8 @@ public class Controller {
         String modelName = "llama3.1";
         String promptInput = promptField.getText().trim();
 
+        promptField.clear();
+
         try
         {
             URL url = new URL("http://localhost:11434/api/generate");
@@ -97,8 +99,21 @@ public class Controller {
             conn.setRequestProperty("Accept", "application/json");
             conn.setDoOutput(true);
 
-            System.out.println("PromptInput: " + promptInput);
+            CompletableFuture.runAsync(() -> AIThreadRunner(modelName, promptInput, conn));
 
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    void AIThreadRunner(String modelName, String promptInput, HttpURLConnection conn)
+    {
+        try
+        {
             if(promptInput != null)
             {
                 String jsonInputString = String.format("{\"model\": \"%s\", \"prompt\":\"%s\", \"stream\": false}", modelName, promptInput);
@@ -217,6 +232,7 @@ public class Controller {
         }
 
         Database.loginUser(username, password);
+        Database.signedIn = true;
 
         try
         {
@@ -241,6 +257,7 @@ public class Controller {
         }
 
         Database.registerUser(username, password);
+        Database.signedIn = true;
 
         try
         {

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootPane" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
+<AnchorPane fx:id="rootPane" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
   <children>
 
     <!-- Card background -->
