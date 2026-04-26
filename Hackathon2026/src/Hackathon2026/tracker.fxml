@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="456.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.TrackerController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="457.0" prefWidth="770.0" VBox.vgrow="ALWAYS">
+      <children>
+        <TextField layoutX="280.0" layoutY="33.0" prefHeight="26.0" prefWidth="210.0" text="Daily Tracker - New Interest X" />
+        <TextField layoutX="33.0" layoutY="81.0" prefHeight="26.0" prefWidth="703.0" text="Things that can be done to increase your progress bar: Watching YT videos, going to a X Museum, something idk" />
+        <CheckBox fx:id="day1" layoutX="56.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 1" />
+        <CheckBox fx:id="day2" layoutX="156.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 2" />
+        <CheckBox fx:id="day3" layoutX="256.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 3" />
+        <CheckBox fx:id="day4" layoutX="356.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 4" />
+        <CheckBox fx:id="day5" layoutX="456.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 5" />
+        <CheckBox fx:id="day6" layoutX="556.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 6" />
+        <CheckBox fx:id="day7" layoutX="656.0" layoutY="140.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="80.0" text="Day 7" />
+        <Label fx:id="progressLabel" layoutX="340.0" layoutY="267.0" text="Daily Progress - 0/7" />
+        <ProgressBar fx:id="progressBar" layoutX="56.0" layoutY="303.0" prefHeight="20.0" prefWidth="669.0" progress="0.0" />
+            <TextField layoutX="33.0" layoutY="20.0" prefHeight="26.0" prefWidth="91.0" text="&lt;-- Back" />
+            <ProgressBar fx:id="progressBar1" layoutX="56.0" layoutY="385.0" prefHeight="20.0" prefWidth="669.0" progress="0.0" />
+            <Label fx:id="progressLabel1" layoutX="340.0" layoutY="353.0" prefHeight="18.0" prefWidth="117.0" text="Weeks learned 0/N" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

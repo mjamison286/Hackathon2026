@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label fx:id="label" text="Label" />
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -35,17 +35,13 @@
               <menus>
                 <Menu mnemonicParsing="false" text="Profile">
                   <items>
-                        <MenuItem mnemonicParsing="false" text="Sign Up" />
-                        <MenuItem mnemonicParsing="false" text="Sign In" />
-                    <MenuItem mnemonicParsing="false" text="View Profile" />
-                        <MenuItem mnemonicParsing="false" text="Settings" />
-                        <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+                    <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
+                        <MenuItem fx:id="settingsMenu" mnemonicParsing="false" onAction="#swapToSettings" text="Settings" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Topics">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add New" />
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem fx:id="addNew" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add New" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

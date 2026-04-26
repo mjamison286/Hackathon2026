@@ -10,23 +10,19 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar prefHeight="0.0" prefWidth="600.0">
          <menus>
             <Menu mnemonicParsing="false" text="Profile">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Sign Up" />
-                  <MenuItem mnemonicParsing="false" text="Sign In" />
-                  <MenuItem mnemonicParsing="false" text="View Profile" />
-                  <MenuItem mnemonicParsing="false" text="Settings" />
-                  <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+                  <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
+                  <MenuItem fx:id="settingsMenu" mnemonicParsing="false" onAction="#swapToSettings" text="Settings" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Topics">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Add New" />
-                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <MenuItem fx:id="addNewTopicMenu" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add New" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
@@ -37,12 +33,12 @@
          </menus>
       </MenuBar>
       <TextField fx:id="promptField" layoutX="225.0" layoutY="187.0" AnchorPane.bottomAnchor="187.33333333333331" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.3333333333333" AnchorPane.topAnchor="187.0" />
-      <Text layoutX="45.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What would you like to learn today?" textAlignment="JUSTIFY">
+      <Text layoutX="45.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What would you like to learn today?" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="237.43098958333331" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="43.77311197916663" AnchorPane.topAnchor="122.626953125">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
-      <Text fx:id="responseTextOutput" layoutX="5.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AI response goes here" textAlignment="CENTER" wrappingWidth="589.4700927734375" AnchorPane.bottomAnchor="153.66666666666666" AnchorPane.topAnchor="229.0" />
-      <Button fx:id="inputButton" layoutX="382.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#AskAI" text="Button" />
+      <Text fx:id="responseTextOutput" layoutX="6.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AI response goes here" textAlignment="CENTER" visible="false" wrappingWidth="589.4700927734375" AnchorPane.bottomAnchor="80.0" />
+      <Button fx:id="inputButton" layoutX="382.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#AskAI" text="Button" AnchorPane.bottomAnchor="186.66666666666666" AnchorPane.leftAnchor="382.0" AnchorPane.rightAnchor="166.0" AnchorPane.topAnchor="188.0" />
    </children>
 </AnchorPane>

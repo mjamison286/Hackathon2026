@@ -9,13 +9,14 @@ public class Main extends Application{
 
     public void start(Stage primaryStage) throws Exception
     {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddTopic.fxml"));
+        System.out.println("start is being called");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
 
         loader.setController(new Controller());
 
         Parent root = loader.load();
 
-        primaryStage.setTitle("hello hackathon2026");
+        primaryStage.setTitle("Bulb.it");
         primaryStage.setScene(new Scene(root, 400, 300));
 
         primaryStage.show();
