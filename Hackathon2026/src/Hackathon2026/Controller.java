@@ -189,6 +189,23 @@ public class Controller {
     }
 
     @FXML
+    void swapToChat()
+    {
+        FXMLLoader loader;
+
+        if(!Database.signedIn)
+        {
+            loader = new FXMLLoader(getClass().getResource("login.fxml"));
+        }
+        else
+        {
+            loader = new FXMLLoader(getClass().getResource("Chat.fxml"));
+        }
+
+        switchScenes(loader);
+    }
+
+    @FXML
     void handleLogin() 
     {
         String username = usernameField.getText();

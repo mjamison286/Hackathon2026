@@ -7,13 +7,9 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0"
-  style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);"
-  xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="Hackathon2026.Controller">
+<AnchorPane fx:id="rootPane" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
   <children>
 
     <!-- Menu bar -->
@@ -21,17 +17,13 @@
       <menus>
         <Menu mnemonicParsing="false" text="Profile">
           <items>
-            <MenuItem mnemonicParsing="false" text="Sign Up" />
-            <MenuItem mnemonicParsing="false" text="Sign In" />
             <MenuItem mnemonicParsing="false" text="View Profile" />
-            <MenuItem mnemonicParsing="false" text="Settings" />
-            <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+                  <MenuItem fx:id="viewChatMenu" mnemonicParsing="false" onAction="#swapToChat" text="Chat" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Topics">
           <items>
             <MenuItem mnemonicParsing="false" text="Add New" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
@@ -43,33 +35,22 @@
     </MenuBar>
 
     <!-- Card background -->
-    <AnchorPane layoutX="60.0" layoutY="55.0" prefWidth="520.0" prefHeight="390.0"
-      style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);" />
+    <AnchorPane layoutX="60.0" layoutY="55.0" prefHeight="390.0" prefWidth="520.0" style="-fx-background-color: rgba(255,255,255,0.75); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 16, 0, 0, 4);" />
 
     <!-- Title -->
-    <Label text="What would you like to explore?" layoutX="100.0" layoutY="85.0"
-      style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" />
+    <Label layoutX="100.0" layoutY="85.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" text="What would you like to explore?" />
 
     <!-- Subtitle -->
-    <Label text="Ask anything — we'll help you discover it." layoutX="100.0" layoutY="118.0"
-      style="-fx-font-size: 13px; -fx-text-fill: #a07050; -fx-font-family: 'Trebuchet MS';" />
+    <Label layoutX="100.0" layoutY="118.0" style="-fx-font-size: 13px; -fx-text-fill: #a07050; -fx-font-family: 'Trebuchet MS';" text="Ask anything — we'll help you discover it." />
 
     <!-- AI response area -->
-    <Text fx:id="responseTextOutput" layoutX="90.0" layoutY="175.0"
-      strokeType="OUTSIDE" strokeWidth="0.0"
-      text="Your exploration starts here..."
-      textAlignment="LEFT" wrappingWidth="460.0"
-      style="-fx-fill: #7a5c3c; -fx-font-family: 'Trebuchet MS'; -fx-font-size: 13px;" />
+    <Text fx:id="responseTextOutput" layoutX="90.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #7a5c3c; -fx-font-family: 'Trebuchet MS'; -fx-font-size: 13px;" text="Your exploration starts here..." textAlignment="LEFT" wrappingWidth="460.0" />
 
     <!-- Input field -->
-    <TextField fx:id="promptField" layoutX="90.0" layoutY="340.0" prefWidth="380.0"
-      promptText="Type a topic or question..."
-      style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
+    <TextField fx:id="promptField" layoutX="90.0" layoutY="340.0" prefWidth="380.0" promptText="Type a topic or question..." style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #e8c4a0; -fx-background-color: #fffaf5; -fx-padding: 9; -fx-font-size: 13px; -fx-font-family: 'Trebuchet MS';" />
 
     <!-- Ask button -->
-    <Button fx:id="inputButton" layoutX="482.0" layoutY="340.0" prefWidth="88.0"
-      mnemonicParsing="false" onMouseClicked="#AskAI" text="Ask →"
-      style="-fx-background-color: linear-gradient(to right, #e8703a, #c05c1a); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" />
+    <Button fx:id="inputButton" layoutX="482.0" layoutY="340.0" mnemonicParsing="false" onMouseClicked="#AskAI" prefWidth="88.0" style="-fx-background-color: linear-gradient(to right, #e8703a, #c05c1a); -fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 9; -fx-font-family: 'Trebuchet MS'; -fx-cursor: hand;" text="Ask →" />
 
   </children>
 </AnchorPane>
