@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="0.0" prefWidth="600.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Profile">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sign Up" />
+                  <MenuItem mnemonicParsing="false" text="Sign In" />
+                  <MenuItem mnemonicParsing="false" text="View Profile" />
+                  <MenuItem mnemonicParsing="false" text="Settings" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Topics">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add New" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TextField fx:id="promptField" layoutX="225.0" layoutY="187.0" AnchorPane.bottomAnchor="187.33333333333331" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.3333333333333" AnchorPane.topAnchor="187.0" />
+      <Text layoutX="45.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="What would you like to learn today?" textAlignment="JUSTIFY">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
+      <Text fx:id="responseTextOutput" layoutX="5.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AI response goes here" textAlignment="CENTER" wrappingWidth="589.4700927734375" AnchorPane.bottomAnchor="153.66666666666666" AnchorPane.topAnchor="229.0" />
+      <Button fx:id="inputButton" layoutX="382.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#AskAI" text="Button" />
+   </children>
+</AnchorPane>
