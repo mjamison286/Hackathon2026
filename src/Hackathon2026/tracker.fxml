@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="480.0" prefWidth="770.0"
+  style="-fx-background-color: linear-gradient(to bottom right, #fff8f0, #ffe0c0, #ffcba4);"
+  xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="Hackathon2026.Controller">
+  <children>
+
+    <MenuBar prefWidth="770.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+
+    <Button layoutX="33.0" layoutY="35.0" mnemonicParsing="false" onAction="#handleBack" text="&lt;-- Back"
+      style="-fx-background-color: transparent; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS'; -fx-underline: true; -fx-border-color: transparent; -fx-cursor: hand;" />
+
+    <Label fx:id="trackerTitle" layoutX="240.0" layoutY="35.0" text="Daily Tracker"
+      style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #c05c1a; -fx-font-family: 'Trebuchet MS';" />
+
+    <CheckBox fx:id="day1" layoutX="56.0" layoutY="100.0" prefWidth="80.0" text="Day 1" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day2" layoutX="156.0" layoutY="100.0" prefWidth="80.0" text="Day 2" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day3" layoutX="256.0" layoutY="100.0" prefWidth="80.0" text="Day 3" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day4" layoutX="356.0" layoutY="100.0" prefWidth="80.0" text="Day 4" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day5" layoutX="456.0" layoutY="100.0" prefWidth="80.0" text="Day 5" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day6" layoutX="556.0" layoutY="100.0" prefWidth="80.0" text="Day 6" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+    <CheckBox fx:id="day7" layoutX="656.0" layoutY="100.0" prefWidth="80.0" text="Day 7" onAction="#updateProgress"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #5c3a1e;" />
+
+    <Label fx:id="progressLabel" layoutX="320.0" layoutY="155.0" text="Daily Progress - 0/7"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #8b5e3c; -fx-font-size: 13px;" />
+    <ProgressBar fx:id="progressBar" layoutX="56.0" layoutY="180.0" prefHeight="20.0" prefWidth="669.0" progress="0.0"
+      style="-fx-accent: #e8703a;" />
+
+    <Label fx:id="weeklyLabel" layoutX="310.0" layoutY="220.0" text="Weeks learned 0/5"
+      style="-fx-font-family: 'Trebuchet MS'; -fx-text-fill: #8b5e3c; -fx-font-size: 13px;" />
+    <ProgressBar fx:id="weeklyProgressBar" layoutX="56.0" layoutY="245.0" prefHeight="20.0" prefWidth="669.0" progress="0.0"
+      style="-fx-accent: #c05c1a;" />
+
+  </children>
+</AnchorPane>
