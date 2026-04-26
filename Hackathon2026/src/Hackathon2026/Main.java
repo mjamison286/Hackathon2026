@@ -16,7 +16,7 @@ public class Main extends Application{
 
         Parent root = loader.load();
 
-        primaryStage.setTitle("hello hackathon2026");
+        primaryStage.setTitle("Bulb.it");
         primaryStage.setScene(new Scene(root, 400, 300));
 
         primaryStage.show();
