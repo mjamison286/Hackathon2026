@@ -9,7 +9,7 @@ public class Main extends Application{
 
     public void start(Stage primaryStage) throws Exception
     {
-        Parent root = FXMLLoader.load(getClass().getResource("hackathon2026.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Chat.fxml"));
 
         primaryStage.setTitle("hello hackathon2026");
         primaryStage.setScene(new Scene(root, 400, 300));
@@ -20,5 +20,13 @@ public class Main extends Application{
     public static void main(String[] args)
     {
         launch(args);
+        try
+        {
+            ChatServer.initialize();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
