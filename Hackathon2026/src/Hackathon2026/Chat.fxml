@@ -17,16 +17,17 @@
          <font>
             <Font name="Trebuchet MS" size="20.0" />
          </font></TextArea>
-      <MenuBar>
+      <MenuBar layoutX="4.0" layoutY="1.0" prefHeight="25.0" prefWidth="595.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.000000000000114" AnchorPane.topAnchor="1.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Profile">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="viewProfileMenu" mnemonicParsing="false" onAction="#swapToProfile" text="View Profile" />
+                  <MenuItem fx:id="viewChatMenu" mnemonicParsing="false" onAction="#swapToChat" text="Chat" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Topics">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem fx:id="addTopicsMenu" mnemonicParsing="false" onAction="#swapToAddTopic" text="Add Topics" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
