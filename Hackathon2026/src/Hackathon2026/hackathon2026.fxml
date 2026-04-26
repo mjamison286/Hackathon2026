@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Hackathon2026.Controller">
     <children>
-        <Label fx:id="label" text="Label" />
+        <Label fx:id="label" onDragDetected="#test" text="Label" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <SplitPane dividerPositions="0.5" layoutX="121.0" layoutY="165.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="50.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="50.0">
+                     <children>
+                        <ImageView fx:id="imageViewer" fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="187.33333333333331" AnchorPane.leftAnchor="48.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="60.0" />
+                        <Text layoutX="84.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Topic Name" textAlignment="JUSTIFY" AnchorPane.bottomAnchor="155.30989583333331" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="84.39453125" AnchorPane.topAnchor="210.1015625">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+            <MenuBar prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Profile">
+                  <items>
+                        <MenuItem mnemonicParsing="false" text="Sign Up" />
+                        <MenuItem mnemonicParsing="false" text="Sign In" />
+                    <MenuItem mnemonicParsing="false" text="View Profile" />
+                        <MenuItem mnemonicParsing="false" text="Settings" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="Sign Out" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Topics">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add New" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
     </children>
 </StackPane>
